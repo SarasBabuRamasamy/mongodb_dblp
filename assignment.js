@@ -1,3 +1,42 @@
+//inserting a document to the database in JSON format
+db.publis.insert(
+    {
+    "type" : "Book",
+    "title" : "Modern Database Systems: The Object Model, Interoperability, and Beyond.",
+    "year" : 1995,
+    "publisher" : "ACM Press and Addison-Wesley",
+    "authors" : [ 
+        "Won Kim"
+    ],
+    "source" : "DBLP"
+    })
+
+//inserting two documents of type article
+db.publis.insertMany([{ "type" : "Article",
+    "title" : "Data dependencies for query optimization: a survey.",
+    "year" : 2022,
+    "publisher" : "VLDB Journal",
+    "authors" : [ 
+        "Jan Kossmann", 
+        "Thorsten Papenbrock", 
+        "Felix Naumann"
+    ],
+    "source" : "DBLP"
+},
+{
+    "type" : "Article",
+    "title" : "Pivot selection algorithms in metric spaces: a survey and experimental study.",
+    "year" : 2022,
+    "publisher" : "ACM Press and Addison-Wesley",
+    "authors" : [ 
+        "Yifan Zhu", 
+        "Lu Chen", 
+        "Yunjun Gao", 
+        "Christian S. Jensen"
+    ],
+    "source" : "DBLP"
+}])
+
 //1. List of all books.  
 db.publis.find({type:'Book'})
 
