@@ -32,3 +32,14 @@ out: {inline: 1}
 }
 )
 
+//mapreduce to find all the fields in the database
+
+mr=db.runCommand({
+    'mapreduce':'publis',
+    'map':function(){
+        for(var key in this){emit(key, null);}
+    },
+    'reduce' : function(key, s){return null;},
+    'out':'publis' +'_keys'
+})
+db[mr.result].distinct('_id')
