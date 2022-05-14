@@ -1,2 +1,10 @@
-db.publis.createIndex({'title':'text'})
+db.publis.find({type:'Book'})
+db.publis.find({year:{$gt:2012}})
+db.publis.find({authors:'Massimo Zancanaro'})
+db.publis.count({authors:'Massimo Zancanaro'})
+db.publis.find({authors:'Massimo Zancanaro'}).sort({'booktitle':1})
+db.publis.find({authors:'Massimo Zancanaro'}).sort({'pages.start':1})
+db.publis.distinct('publisher')
+db.publis.createIndex({'title':'text'})
+
 db.publis.find({$text:{$search:'database'}})
